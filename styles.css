@@ -6,3 +6,22 @@ dark-blue - #134d71;
 white - #ffffff;
 black - #000000;
 */
+
+* {
+  border: 1px solid red
+  }
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.heading { 
+  
+}
+
+.icon {
+  max-width: 70px;
+}
