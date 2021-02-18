@@ -3,8 +3,26 @@
   <head>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <title>Self Care Center</title>
   </head>
   <body>
+
+    <h1 class="heading">Self Care Center</h1>
+    <section class="form-container">
+      <p>Which type of message?</p>
+      <form>
+        <input type="radio" id="affirmation" value="affirmation">
+        <label for="affirmation">Affirmation</label>
+        <input type="radio" id="mantra" value="mantra">
+        <label for="mantra">Mantra</label>
+        <br>
+        <button class="button-msg">Receive Message</button>
+      </form>
+    </section>
+    <section class="msg-box">
+      <img class="icon" src="./assets/meditate.svg" alt="mediation icon">
+      <p class="message visibility-hidden"></p>
+    </section>
   
     <script type="text/javascript" src="main.js"></script>
   </body>
