@@ -3,10 +3,12 @@ var radioMantra = document.querySelector('#mantra');
 // var checkedRadio = document.getElementsByTagName('input')
 var buttonReceive = document.querySelector('.button-msg');
 var buttonAdd = document.querySelector('.button-form');
+var icon = document.querySelector('.icon');
+var message = document.querySelector('.message');
 
 // EVENT LISTENERS
 buttonReceive.addEventListener('click', function(event) {
-  displayMsg()
+  displayMsg();
   event.preventDefault();
 })
 
@@ -24,22 +26,24 @@ function typeOfMsg() {
 }
 
 function displayMsg() {
-  var type = typeOfMsg();
   var randomAffirmation = affirmation[getRandomIndex(affirmation)];
   var randomMantra = mantra[getRandomIndex(mantra)];
-
+  var type = typeOfMsg();
+  show(message);
+  hide(icon);
+  
   if (type) {
-    console.log(randomAffirmation);
+    message.innerHTML = randomAffirmation;
   } else {
-    console.log(randomMantra);
+     message.innerHTML = randomMantra;
   }
 }
 
 function show(element) {
-  element.classList.add('display-hidden');
+  element.classList.remove('visibility-hidden');
 }
 
 function hide(element) {
-  element.classList.remove('display-hidden');
+  element.classList.add('visibility-hidden');
 }
  
