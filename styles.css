@@ -7,19 +7,39 @@ white - #ffffff;
 black - #000000;
 */
 
-* {
+/* * {
   border: 1px solid red
-  }
+  } */
 
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
   font-family: 'Quicksand', sans-serif;
+  background: linear-gradient(#134d71, #78a7c6, #f7e4bf);
+  height: 100vh;
 }
 
-.heading { 
-  
+h1,
+h2 { 
+  color: #ffffff;
+}
+.form-container {
+  margin-top: 5%;
+}
+
+form {
+  background-color: #ffffff;
+  width: 28vw;
+  height: 8vh;
+}
+
+.msg-box {
+  background-color: #ffffff;
+  padding-top: 1em;
+  width: 40vw;
+  height: 10vh;
+  margin: 5em;
 }
 
 .icon {
