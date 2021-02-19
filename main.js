@@ -2,7 +2,7 @@ var buttonAddMsg = document.querySelector('.button-form');
 var buttonSubmitMsg = document.querySelector('.submit');
 var buttonReceive = document.querySelector('.button-msg');
 var form = document.querySelector('.add-msg-form');
-var formTypeInput = document.querySelector('.msg-type');
+var formTypeInput = document.querySelector('#types');
 var formMsgInput = document.querySelector('.user-msg');
 var icon = document.querySelector('.icon');
 var message = document.querySelector('.message');
@@ -79,10 +79,10 @@ function displayUserMsg() {
 function validate() {
   var confirm = false;
 
-  if (formMsgInput.value !== "") {
+  if (formMsgInput.value !== "" &&
+  formTypeInput.value !== "") {
     confirm = true;
   }
-  console.log(confirm)
   return confirm;
 }
 
