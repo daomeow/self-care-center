@@ -46,8 +46,19 @@ form {
 
 .radio-container {
   padding-top: 5%;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
 }
 
+/* .affirmation-container,
+.mantra-container {
+  justify-content: space-around;
+} */
+
+/* .radio {
+  justify-content: space-around;
+} */
 /* MESSAGE BOX */
 
 .button-container {
@@ -67,7 +78,7 @@ button {
   background-color: #ffffff;
   padding-top: 1em;
   width: 48em;
-  height: 7em;
+  height: 8em;
   margin: 5em;
   border-radius: 5px;
   display: flex;

@@ -32,9 +32,9 @@ function getRandomIndex(array) {
 
 function typeOfMsg() {
   if (radioAffirmation.checked) {
-    return true;
+    return 1;
   } else if (radioMantra.checked) {
-    return false;
+    return 2;
   }
 }
 
@@ -43,15 +43,18 @@ function displayMsg() {
   var randomAffirmation = affirmation[getRandomIndex(affirmation)];
   var randomMantra = mantra[getRandomIndex(mantra)];
   var type = typeOfMsg();
+  console.log(type)
+  
+  if (type === 1) {
+    message.innerHTML = randomAffirmation;
+  } else if (type === 2 ) {
+    message.innerHTML = randomMantra;
+  } else {
+    return;
+  }
   show(message);
   hide(icon);
   hide(form);
-  
-  if (type) {
-    message.innerHTML = randomAffirmation;
-  } else if (!type) {
-     message.innerHTML = randomMantra;
-  }
 }
 
 function addForm() {
