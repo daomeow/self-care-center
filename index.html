@@ -25,10 +25,10 @@
       </form>
     </section>
     <section class="msg-box">
-      <img class="icon" src="./assets/meditate.svg" alt="mediation icon">
-      <p class="message visibility-hidden">
-        <!-- MESSAGES -->
-      </p>
+      <div class="msg-container">
+        <img class="icon" src="./assets/meditate.svg" alt="mediation icon">
+        <p class="message visibility-hidden"></p>
+      </div>
       <form class="add-msg-form visibility-hidden">
         <span class="type-container">
           <label for="type">Message Type:</label>
@@ -45,8 +45,10 @@
         </span>
       </form>
     </section>
-    <button class="button-form">Add Message</button>
-    <button class="submit visibility-hidden">Submit</button>
+    <div class="form-buttons">
+      <button class="button-form">Add Message</button>
+      <button class="submit visibility-hidden">Submit</button>
+    </div>
     <script src="data.js"></script>
     <script type="text/javascript" src="main.js"></script>
   </body>

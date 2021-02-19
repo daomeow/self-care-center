@@ -9,7 +9,6 @@ var message = document.querySelector('.message');
 var radioAffirmation = document.querySelector('#affirmation');
 var radioMantra = document.querySelector('#mantra');
 
-// EVENT LISTENERS
 buttonReceive.addEventListener('click', function(event) {
   displayMsg();
   event.preventDefault();
@@ -25,7 +24,6 @@ buttonSubmitMsg.addEventListener('click', function(event) {
   event.preventDefault();
 });
 
-// FUNCTIONS 
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length)
 }
@@ -58,29 +56,29 @@ function displayMsg() {
 
 function addForm() {
   show(form);
-  show(buttonSubmitMsg)
+  show(buttonSubmitMsg);
   hide(icon);
   hide(message);
   hide(buttonAddMsg)
 }
 
 function displayUserMsg() {
-  // var type = formTypeInputrm.value;
   var newMsg = formMsgInput.value;
   var validatation = validate();
-  hide(icon)
   if (validatation) {
     message.innerHTML = newMsg;
     hide(form);
     show(message);
   } 
+  hide(icon);
 }
 
 function validate() {
   var confirm = false;
 
   if (formMsgInput.value !== "" &&
-  formTypeInput.value !== "") {
+  formTypeInput.value === 'affirmation' ||
+  formTypeInput.value === 'mantra') {
     confirm = true;
   }
   return confirm;
