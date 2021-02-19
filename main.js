@@ -58,19 +58,32 @@ function displayMsg() {
 
 function addForm() {
   show(form);
+  show(buttonSubmitMsg)
   hide(icon);
   hide(message);
+  hide(buttonAddMsg)
 }
 
 function displayUserMsg() {
   // var type = formTypeInputrm.value;
   var newMsg = formMsgInput.value;
-  // console.log(newMsg)
-  hide(form);
+  var validatation = validate();
   hide(icon)
-  show(message);
-  
-  message.innerHTML = newMsg;
+  if (validatation) {
+    message.innerHTML = newMsg;
+    hide(form);
+    show(message);
+  } 
+}
+
+function validate() {
+  var confirm = false;
+
+  if (formMsgInput.value !== "") {
+    confirm = true;
+  }
+  console.log(confirm)
+  return confirm;
 }
 
 function show(element) {
