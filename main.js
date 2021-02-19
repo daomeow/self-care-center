@@ -1,5 +1,6 @@
 var buttonAdd = document.querySelector('.button-form');
 var buttonReceive = document.querySelector('.button-msg');
+var form = document.querySelector('.add-msg-form');
 var icon = document.querySelector('.icon');
 var message = document.querySelector('.message');
 var radioAffirmation = document.querySelector('#affirmation');
@@ -9,7 +10,12 @@ var radioMantra = document.querySelector('#mantra');
 buttonReceive.addEventListener('click', function(event) {
   displayMsg();
   event.preventDefault();
-})
+});
+
+buttonAdd.addEventListener('click', function(event) {
+  addForm();
+  event.preventDefault();
+});
 
 // FUNCTIONS 
 function getRandomIndex(array) {
@@ -30,12 +36,19 @@ function displayMsg() {
   var type = typeOfMsg();
   show(message);
   hide(icon);
+  hide(form);
   
   if (type) {
     message.innerHTML = randomAffirmation;
   } else {
      message.innerHTML = randomMantra;
   }
+}
+
+function addForm() {
+  show(form);
+  hide(icon);
+  hide(message);
 }
 
 function show(element) {
