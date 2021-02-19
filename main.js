@@ -1,6 +1,9 @@
-var buttonAdd = document.querySelector('.button-form');
+var buttonAddMsg = document.querySelector('.button-form');
+var buttonSubmitMsg = document.querySelector('.submit');
 var buttonReceive = document.querySelector('.button-msg');
 var form = document.querySelector('.add-msg-form');
+var formTypeInput = document.querySelector('.msg-type');
+var formMsgInput = document.querySelector('.user-msg');
 var icon = document.querySelector('.icon');
 var message = document.querySelector('.message');
 var radioAffirmation = document.querySelector('#affirmation');
@@ -12,8 +15,13 @@ buttonReceive.addEventListener('click', function(event) {
   event.preventDefault();
 });
 
-buttonAdd.addEventListener('click', function(event) {
+buttonAddMsg.addEventListener('click', function(event) {
   addForm();
+  event.preventDefault();
+});
+
+buttonSubmitMsg.addEventListener('click', function(event) {
+  displayUserMsg();
   event.preventDefault();
 });
 
@@ -25,10 +33,11 @@ function getRandomIndex(array) {
 function typeOfMsg() {
   if (radioAffirmation.checked) {
     return true;
-  } else {
+  } else if (radioMantra.checked) {
     return false;
   }
 }
+
 
 function displayMsg() {
   var randomAffirmation = affirmation[getRandomIndex(affirmation)];
@@ -40,7 +49,7 @@ function displayMsg() {
   
   if (type) {
     message.innerHTML = randomAffirmation;
-  } else {
+  } else if (!type) {
      message.innerHTML = randomMantra;
   }
 }
@@ -49,6 +58,18 @@ function addForm() {
   show(form);
   hide(icon);
   hide(message);
+}
+
+function displayUserMsg() {
+  // var type = formTypeInputrm.value;
+  var newMsg = formMsgInput.value;
+  // console.log(newMsg)
+  hide(form);
+  hide(icon)
+  show(message);
+  
+  message.innerHTML = newMsg;
+
 }
 
 function show(element) {

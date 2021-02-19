@@ -84,6 +84,15 @@ button {
   margin-left: 20%;
 }
 
+
+/* FORM */
+.add-msg-form {
+  display: flex;
+  align-items: center;
+}
+
+
+
 .visibility-hidden {
   display: none;
 }

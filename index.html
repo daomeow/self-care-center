@@ -29,8 +29,19 @@
         <!-- MESSAGES -->
       </p>
       <form class="add-msg-form visibility-hidden">
-        <input label="type" type="text" placeholder="Type of message">
-        <input label="message" type="text" placeholder="Enter message here!"> 
+        <span class="type-container">
+          <label for="type">Message Type:</label>
+          <input id="types" list="type">
+          <datalist id="type">
+            <option value="affirmation"></option>
+            <option value="mantra"></option>  
+          </datalist>
+        </span>
+        <br>
+        <span class="message-container">
+          <label for="message">New Message:</label>
+          <input label="message" type="text" class="user-msg" placeholder="Enter message here!"> 
+        </span>
         <button class="submit">Submit</button>
       </form>
     </section>
