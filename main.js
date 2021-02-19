@@ -1,10 +1,9 @@
-var radioAffirmation = document.querySelector('#affirmation');
-var radioMantra = document.querySelector('#mantra');
-// var checkedRadio = document.getElementsByTagName('input')
-var buttonReceive = document.querySelector('.button-msg');
 var buttonAdd = document.querySelector('.button-form');
+var buttonReceive = document.querySelector('.button-msg');
 var icon = document.querySelector('.icon');
 var message = document.querySelector('.message');
+var radioAffirmation = document.querySelector('#affirmation');
+var radioMantra = document.querySelector('#mantra');
 
 // EVENT LISTENERS
 buttonReceive.addEventListener('click', function(event) {
@@ -46,4 +45,5 @@ function show(element) {
 function hide(element) {
   element.classList.add('visibility-hidden');
 }
+
  

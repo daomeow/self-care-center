@@ -12,9 +12,9 @@
       <h2>Which type of message?</h2 >
       <form>
         <div class="radio-container">
-          <input type="radio" id="affirmation" name="radio" value="affirmation">
+          <input type="radio" class="affirmation" id="affirmation" name="radio" value="affirmation">
           <label for="affirmation">affirmation</label>
-          <input type="radio" id="mantra" name="radio" value="mantra">
+          <input type="radio" class="mantra" id="mantra" name="radio" value="mantra">
           <label for="mantra">mantra</label> 
         </div> 
         <span class="button-container">
@@ -28,6 +28,8 @@
       <p class="message visibility-hidden">
         <!-- MESSAGES -->
       </p>
+      <form class="add-msg-form visibility-hidden">
+      </form>
     </section>
     <script src="data.js"></script>
     <script type="text/javascript" src="main.js"></script>

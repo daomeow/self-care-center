@@ -7,6 +7,10 @@ white - #ffffff;
 black - #000000;
 */
 
+/* * {
+  border: 1px solid red
+  } */
+
 body {
   display: flex;
   flex-direction: column;
@@ -22,19 +26,19 @@ h2 {
   color: #ffffff;
 }
 h2 {
-  margin-left: 15%;
+  margin-left: 24%;
   margin-bottom: 1%;
 }
 
 .form-container {
-  margin-top: 5%;
+  margin-top: 3%;
 }
 
 form {
   background-color: #ffffff;
   align-items: center;
-  width: 28vw;
-  height: 10vh;
+  width: 33em;
+  height: 7em;
   display: flex;
   flex-direction: column;
   border-radius: 5px;
@@ -62,15 +66,22 @@ button {
 .msg-box {
   background-color: #ffffff;
   padding-top: 1em;
-  width: 40vw;
-  height: 10vh;
+  width: 48em;
+  height: 7em;
   margin: 5em;
   border-radius: 5px;
+  display: flex;
 }
 
 .icon {
   max-width: 70px;
   margin-left: 45%;
+}
+
+.message {
+  align-items: center;
+  margin-top: 5%;
+  margin-left: 20%;
 }
 
 .visibility-hidden {
