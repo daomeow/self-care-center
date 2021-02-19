@@ -9,8 +9,9 @@ black - #000000;
 
 /* * {
   border: 1px solid red
-  } */
+} */
 
+/* GLOBAL RULES */
 body {
   display: flex;
   flex-direction: column;
@@ -51,20 +52,8 @@ form {
   width: 100%;
 }
 
-/* .affirmation-container,
-.mantra-container {
-  justify-content: space-around;
-} */
-
-/* .radio {
-  justify-content: space-around;
-} */
 /* MESSAGE BOX */
 
-.button-container {
-  width: 19vw;
-  margin-left: 10%;
-}
 button {
   background-color: #134d71;
   color: #ffffff;
@@ -95,15 +84,18 @@ button {
   margin-left: 20%;
 }
 
-
 /* FORM */
 .add-msg-form {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  margin-left: 15%;
 }
 
+.user-msg {
+  width: 290px;
+}
 
-
+/* GLOBAL RULES */
 .visibility-hidden {
   display: none;
 }

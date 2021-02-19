@@ -38,7 +38,6 @@ function typeOfMsg() {
   }
 }
 
-
 function displayMsg() {
   var randomAffirmation = affirmation[getRandomIndex(affirmation)];
   var randomMantra = mantra[getRandomIndex(mantra)];
@@ -72,7 +71,6 @@ function displayUserMsg() {
   show(message);
   
   message.innerHTML = newMsg;
-
 }
 
 function show(element) {
