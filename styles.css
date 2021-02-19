@@ -72,3 +72,7 @@ button {
   max-width: 70px;
   margin-left: 45%;
 }
+
+.visibility-hidden {
+  display: none;
+}
