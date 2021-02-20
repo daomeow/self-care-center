@@ -15,7 +15,7 @@ buttonReceive.addEventListener('click', function(event) {
 });
 
 buttonAddMsg.addEventListener('click', function(event) {
-  addForm();
+  displayForm();
   event.preventDefault();
 });
 
@@ -50,11 +50,13 @@ function displayMsg() {
     return;
   }
   show(message);
+  show(buttonAddMsg);
   hide(icon);
   hide(form);
+  hide(buttonSubmitMsg);
 }
 
-function addForm() {
+function displayForm() {
   show(form);
   show(buttonSubmitMsg);
   hide(icon);
@@ -67,8 +69,11 @@ function displayUserMsg() {
   var validatation = validate();
   if (validatation) {
     message.innerHTML = newMsg;
-    hide(form);
+    clearForm();
     show(message);
+    show(buttonAddMsg);
+    hide(buttonSubmitMsg);
+    hide(form);
   } 
   hide(icon);
 }
@@ -82,6 +87,11 @@ function validate() {
     confirm = true;
   }
   return confirm;
+}
+
+function clearForm() {
+  formMsgInput.value = "";
+  formTypeInput.value = "";
 }
 
 function show(element) {
