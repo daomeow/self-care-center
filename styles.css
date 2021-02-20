@@ -1,7 +1,3 @@
-* {
-  /* border: 1px solid red */
-}
-
 /* GLOBAL RULES */
 body {
   font-family: 'Quicksand', sans-serif;
@@ -17,6 +13,7 @@ h1,
 h2 { 
   color: #ffffff;
 }
+
 h2 {
   margin-left: 24%;
   margin-bottom: 1%;
@@ -48,7 +45,6 @@ form {
 }
 
 /* MESSAGE BOX */
-
 button {
   background-color: #134d71;
   color: #ffffff;

@@ -9,24 +9,14 @@ var message = document.querySelector('.message');
 var radioAffirmation = document.querySelector('#affirmation');
 var radioMantra = document.querySelector('#mantra');
 
+buttonAddMsg.addEventListener('click', displayForm);
+
 buttonReceive.addEventListener('click', function(event) {
   displayMsg();
   event.preventDefault();
 });
 
-buttonAddMsg.addEventListener('click', function(event) {
-  displayForm();
-  event.preventDefault();
-});
-
-buttonSubmitMsg.addEventListener('click', function(event) {
-  displayUserMsg();
-  event.preventDefault();
-});
-
-function getRandomIndex(array) {
-  return Math.floor(Math.random() * array.length)
-}
+buttonSubmitMsg.addEventListener('click', displayUserMsg);
 
 function typeOfMsg() {
   if (radioAffirmation.checked) {
@@ -36,11 +26,14 @@ function typeOfMsg() {
   }
 }
 
+function getRandomIndex(array) {
+  return Math.floor(Math.random() * array.length)
+}
+
 function displayMsg() {
   var randomAffirmation = affirmation[getRandomIndex(affirmation)];
   var randomMantra = mantra[getRandomIndex(mantra)];
   var type = typeOfMsg();
-  console.log(type)
   
   if (type === 1) {
     message.innerHTML = randomAffirmation;
@@ -49,31 +42,32 @@ function displayMsg() {
   } else {
     return;
   }
-  show(message);
-  show(buttonAddMsg);
-  hide(icon);
-  hide(form);
   hide(buttonSubmitMsg);
+  hide(form);
+  hide(icon);
+  show(buttonAddMsg);
+  show(message);
 }
 
 function displayForm() {
-  show(form);
-  show(buttonSubmitMsg);
+  hide(buttonAddMsg);
   hide(icon);
   hide(message);
-  hide(buttonAddMsg)
+  show(buttonSubmitMsg);
+  show(form);
 }
 
 function displayUserMsg() {
   var newMsg = formMsgInput.value;
   var validatation = validate();
+  
   if (validatation) {
     message.innerHTML = newMsg;
     clearForm();
-    show(message);
-    show(buttonAddMsg);
     hide(buttonSubmitMsg);
     hide(form);
+    show(buttonAddMsg);
+    show(message);
   } 
   hide(icon);
 }
@@ -94,12 +88,13 @@ function clearForm() {
   formTypeInput.value = "";
 }
 
+function hide(element) {
+  element.classList.add('visibility-hidden');
+}
+
 function show(element) {
   element.classList.remove('visibility-hidden');
 }
 
-function hide(element) {
-  element.classList.add('visibility-hidden');
-}
 
  
