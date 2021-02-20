@@ -38,6 +38,7 @@ body {
 }
 
 .login-button {
+  font-family: 'Quicksand', sans-serif;
   padding: 1% 5%;
   margin-top: 8%;
   margin-left: 68%;
@@ -52,7 +53,14 @@ body {
 }
 
 h1 {
+  font-size: 3em;
   color: #ffffff;
+}
+
+.intro {
+  font-size: 1.5em;
+  color: #ffffff;
+  margin: 0;
 }
 
 h2 { 

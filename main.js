@@ -8,6 +8,7 @@ var formMsgInput = document.querySelector('.user-msg');
 var icon = document.querySelector('.icon');
 var loginName = document.querySelector('.user-name');
 var loginPage = document.querySelector('.login-page');
+var mainIntro = document.querySelector('.intro');
 var mainPage = document.querySelector('.main-page');
 var message = document.querySelector('.message');
 var radioAffirmation = document.querySelector('#affirmation');
@@ -28,9 +29,15 @@ buttonAddMsg.addEventListener('click', displayForm);
 buttonSubmitMsg.addEventListener('click', displayUserMsg);
 
 function showWelcome() {
-  hide(loginPage);
-  show(mainPage);
-  console.log('i made it ')
+  var name = loginName.value
+
+  if (name !== "") {
+    mainIntro.innerHTML = `
+    Welcome, ${name}! Learn from yesterday, live for today, hope for tomorrow.
+    `
+    hide(loginPage);
+    show(mainPage);
+  }
 }
 
 function typeOfMsg() {
