@@ -5,6 +5,8 @@ var buttonLogin = document.querySelector('.login-button');
 var form = document.querySelector('.add-msg-form');
 var formTypeInput = document.querySelector('#types');
 var formMsgInput = document.querySelector('.user-msg');
+var errorMsg = document.querySelector('.error-msg');
+var errorType = document.querySelector('.error-type');
 var icon = document.querySelector('.icon');
 var loginName = document.querySelector('.user-name');
 var loginPage = document.querySelector('.login-page');
@@ -75,15 +77,17 @@ function displayForm() {
   hide(buttonAddMsg);
   hide(icon);
   hide(message);
+  hide(errorType);
+  hide(errorMsg);
   show(buttonSubmitMsg);
   show(form);
 }
 
 function displayUserMsg() {
   var newMsg = formMsgInput.value;
-  var validatation = validate();
+  var error = displayError();
   
-  if (validatation) {
+  if (!error) {
     message.innerHTML = newMsg;
     clearForm();
     hide(buttonSubmitMsg);
@@ -94,15 +98,25 @@ function displayUserMsg() {
   hide(icon);
 }
 
-function validate() {
-  var confirm = false;
+function validate(userEntry, warning) {
 
-  if (formMsgInput.value !== "" &&
-  formTypeInput.value === 'affirmation' ||
-  formTypeInput.value === 'mantra') {
-    confirm = true;
+  if (userEntry === "") {
+    show(warning);
+    return true;
+  } else {
+    hide(warning)
+    return false;
   }
-  return confirm;
+}   
+function displayError() {
+  var checkType = validate(formTypeInput.value, errorType);
+  var checkMsg = validate(formMsgInput.value, errorMsg);
+
+  if (checkType || checkMsg) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 function clearForm() {

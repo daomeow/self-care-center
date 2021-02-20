@@ -44,7 +44,7 @@ body {
   margin-left: 68%;
 }
 
-/* FORM */
+/* MAIN PAGE */
 .main-page {
   display: flex;
   flex-direction: column;
@@ -111,7 +111,7 @@ button {
   background-color: #ffffff;
   padding-top: 1em;
   width: 48em;
-  height: 8em;
+  height: 9em;
   margin-top: 5em;
   border-radius: 5px;
 }
@@ -131,7 +131,7 @@ button {
   margin-top: 5%;
 }
 
-/* FORM */
+/* CYO FORM */
 .add-msg-form {
   display: flex;
   align-items: flex-start;
@@ -142,9 +142,17 @@ button {
   width: 290px;
 }
 
+.type-container {
+  height: 45%;
+}
+.error-type,
+.error-msg {
+  color:red;
+  font-size: .9em;
+  margin: 0 0;
+}
 .form-buttons {
   margin: 1% 0 0 45%;
-  /* margin-left: 45%; */
 }
 
 .button-form,
