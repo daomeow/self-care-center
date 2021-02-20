@@ -1,3 +1,8 @@
+* {
+  /* border: 1px solid red */
+}
+
+
 /* GLOBAL RULES */
 body {
   font-family: 'Quicksand', sans-serif;
@@ -7,6 +12,37 @@ body {
   background: linear-gradient(#134d71, #78a7c6, #f7e4bf);
   height: 100vh;
 }
+
+/* LOGIN PAGE */
+.login-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center ;
+}
+
+.login-heading {
+  font-size: 3em;
+  padding-top: 1em;
+}
+
+.login-container {
+  background-color: #ffffff;
+  align-items: center;
+  width: 35em;
+  height: 10em;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  padding-top: 5%;
+  margin-top: 10%;
+}
+
+.login-button {
+  padding: 1% 5%;
+  margin-top: 8%;
+  margin-left: 68%;
+}
+
 
 /* FORM */
 h1,

@@ -6,49 +6,63 @@
     <title>✨ Self Care Center</title>
   </head>
   <body>
-    <h1 class="heading">✨ Self Care Center ✨</h1>
-    <br>
-    <section class="form-container">
-      <h2>Which type of message?</h2 >
-      <form>
-        <div class="radio-container">
-          <div class="affirmation-container">
-            <input type="radio" class="affirmation radio" id="affirmation" name="radio" value="affirmation">
-            <label for="affirmation">affirmation</label>
-          </div>
-          <div class="mantra-container">
-            <input type="radio" class="mantra radio" id="mantra" name="radio" value="mantra">
-            <label for="mantra">mantra</label> 
-          </div>
-        </div> 
-        <button class="button-msg">Receive Message</button>
-      </form>
+    <section class="login-page">
+      <h1 class="login-heading">✨ Self Care Center ✨</h1>
+      <section class="login-container">
+        <p>Please enter your name to login</p>
+        <div class="name-container">
+          <label for="name">Name:</label>
+          <input type="text" class="user-name">
+        </div>
+        <button class="login-button">Submit</button>
+      </section>
     </section>
-    <section class="msg-box">
-      <div class="msg-container">
-        <img class="icon" src="./assets/meditate.svg" alt="mediation icon">
-        <p class="message visibility-hidden"></p>
+
+    <section class="main-page visibility-hidden">
+      <h1 class="main-heading">✨ Self Care Center ✨</h1>
+      <br>
+      <section class="form-container">
+        <h2>Which type of message?</h2 >
+        <form>
+          <div class="radio-container">
+            <div class="affirmation-container">
+              <input type="radio" class="affirmation radio" id="affirmation" name="radio" value="affirmation">
+              <label for="affirmation">affirmation</label>
+            </div>
+            <div class="mantra-container">
+              <input type="radio" class="mantra radio" id="mantra" name="radio" value="mantra">
+              <label for="mantra">mantra</label> 
+            </div>
+          </div> 
+          <button class="button-msg">Receive Message</button>
+        </form>
+      </section>
+      <section class="msg-box">
+        <div class="msg-container">
+          <img class="icon" src="./assets/meditate.svg" alt="mediation icon">
+          <p class="message visibility-hidden"></p>
+        </div>
+        <form class="add-msg-form visibility-hidden">
+          <span class="type-container">
+            <label for="type">Message Type:</label>
+            <input id="types" list="type">
+            <datalist id="type">
+              <option value="affirmation"></option>
+              <option value="mantra"></option>  
+            </datalist>
+          </span>
+          <br>
+          <span class="message-container">
+            <label class="msg-input" for="message">New Message:</label>
+            <input label="message" type="text" class="user-msg" placeholder="Enter message here!"> 
+          </span>
+        </form>
+      </section>
+      <div class="form-buttons">
+        <button class="button-form">Add Message</button>
+        <button class="submit visibility-hidden">Submit</button>
       </div>
-      <form class="add-msg-form visibility-hidden">
-        <span class="type-container">
-          <label for="type">Message Type:</label>
-          <input id="types" list="type">
-          <datalist id="type">
-            <option value="affirmation"></option>
-            <option value="mantra"></option>  
-          </datalist>
-        </span>
-        <br>
-        <span class="message-container">
-          <label class="msg-input" for="message">New Message:</label>
-          <input label="message" type="text" class="user-msg" placeholder="Enter message here!"> 
-        </span>
-      </form>
-    </section>
-    <div class="form-buttons">
-      <button class="button-form">Add Message</button>
-      <button class="submit visibility-hidden">Submit</button>
-    </div>
+    </section> 
     <script src="data.js"></script>
     <script type="text/javascript" src="main.js"></script>
   </body>
