@@ -1,22 +1,37 @@
 var buttonAddMsg = document.querySelector('.button-form');
 var buttonSubmitMsg = document.querySelector('.submit');
 var buttonReceive = document.querySelector('.button-msg');
+var buttonLogin = document.querySelector('.login-button');
 var form = document.querySelector('.add-msg-form');
 var formTypeInput = document.querySelector('#types');
 var formMsgInput = document.querySelector('.user-msg');
 var icon = document.querySelector('.icon');
+var loginName = document.querySelector('.user-name');
+var loginPage = document.querySelector('.login-page');
+var mainPage = document.querySelector('.main-page');
 var message = document.querySelector('.message');
 var radioAffirmation = document.querySelector('#affirmation');
 var radioMantra = document.querySelector('#mantra');
 
-buttonAddMsg.addEventListener('click', displayForm);
+buttonLogin.addEventListener('click', function(event) {
+  showWelcome();
+  event.preventDefault();
+});
 
 buttonReceive.addEventListener('click', function(event) {
   displayMsg();
   event.preventDefault();
 });
 
+buttonAddMsg.addEventListener('click', displayForm);
+
 buttonSubmitMsg.addEventListener('click', displayUserMsg);
+
+function showWelcome() {
+  hide(loginPage);
+  show(mainPage);
+  console.log('i made it ')
+}
 
 function typeOfMsg() {
   if (radioAffirmation.checked) {

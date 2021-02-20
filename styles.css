@@ -28,7 +28,7 @@ body {
 .login-container {
   background-color: #ffffff;
   align-items: center;
-  width: 35em;
+  width: 30em;
   height: 10em;
   display: flex;
   flex-direction: column;
