@@ -13,7 +13,7 @@ var message = document.querySelector('.message');
 var messageFormInput = document.querySelector('.user-msg');
 var radioAffirmation = document.querySelector('#affirmation');
 var radioMantra = document.querySelector('#mantra');
-var receiveMessageButton = document.querySelector('.button-msg');
+var receiveMessageButton = document.querySelector('.receive-button');
 var submitMessageButton = document.querySelector('.submit');
 var userForm = document.querySelector('.add-msg-form');
 
@@ -62,6 +62,8 @@ function displayMessage() {
     message.innerHTML = randomAffirmation;
   } else if (type === 2 ) {
     message.innerHTML = randomMantra;
+  } else {
+    return;
   } 
   hide(icon);
   hide(submitMessageButton);
