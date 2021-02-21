@@ -16,7 +16,8 @@ Users have the option to add their own messages. To submit an add message form, 
 The clear button will reset the message box
 
 ## Setup
-
+- [Click here for GitHub Pages](https://daomeow.github.io/self-care-center/.)
+-
 - Fork this project to your own Github account
 - Clone the repository to your local machine
 - `cd` into the project
@@ -30,4 +31,4 @@ Melanie Daoheuang [@daomeow](https://github.com/daomeow)
 ## Extensions
 - Login Page
 - User can add their own message
-- Error handling and clear button 
+- Error handling and clear button
