@@ -1,13 +1,13 @@
 # Self Care Center
 Need a boost in your day? Launch the Self Care Center to receive a positive message.
-![selfCare1](./assets/selfCare1.png)
+![selfCare0](./assets/selfCare0.png)
 
 
 ## Description
 
 “Affirmations are thoughts of positive self-empowerment, meant to assert your self-worth. Mantras are repetitive phrases that are repeated again and again during mindfulness practices.  
 
-To log into the Self Care Center, enter in a name and click submit
+To log into the Self Care Center, enter in a name and click submit.
 Select either the affirmation or mantra button to receive a message.
 ![selfCare2](./assets/selfCare2.png)
 Continue to click the receive message button to shuffle through more messages. 
