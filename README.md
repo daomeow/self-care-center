@@ -20,7 +20,8 @@ The clear button will reset the message box
 - Fork this project to your own Github account
 - Clone the repository to your local machine
 - `cd` into the project
-- `open index.html` to open GitHub pages 
+- `open index.html` to open Self Care Center 
+- [Click here for GitHub Pages](https://daomeow.github.io/self-care-center/.)
 
 ## Authors
 
