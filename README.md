@@ -27,4 +27,6 @@ The clear button will reset the message box
 Melanie Daoheuang [@daomeow](https://github.com/daomeow)
 
 ## Extensions
-
+- Login Page
+- User can add their own message
+- Error handling and clear button 
