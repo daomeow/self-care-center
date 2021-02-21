@@ -31,7 +31,7 @@ submitMessageButton.addEventListener('click', displayUserMessage);
 clearButton.addEventListener('click', clearMessage);
 
 function showWelcome() {
-  var name = loginName.value
+  var name = loginName.value;
 
   if (name !== "") {
     mainIntro.innerHTML = `
@@ -39,8 +39,6 @@ function showWelcome() {
     `
     hide(loginPage);
     show(mainPage);
-  } else {
-    show(loginError)
   }
 }
 
@@ -75,13 +73,15 @@ function displayMessage() {
     message.innerHTML = randomAffirmation;
   } else if (type === 2 ) {
     message.innerHTML = randomMantra;
-  } else {
-    return;
   } 
-  hide(icon);
-  hide(submitMessageButton);
-  hide(userForm);
-  show(addMessageButton);
+
+  if (type === 1 || type === 2) {
+    hide(icon);
+    hide(submitMessageButton);
+    hide(userForm);
+    show(addMessageButton);
+    show(message);
+  }
 }
 
 function displayForm() {
@@ -131,14 +131,6 @@ function displayError() {
     return false;
   }
 }
-
-// function confirmRadioButton() {
-//   if (!radioAffirmation.checked && !radioMantra.checked) {
-//     show(errorRadio);
-//   } else {
-//     hide(errorRadio);
-//   }
-// }
 
 function clearForm() {
   messageFormInput.value = "";
