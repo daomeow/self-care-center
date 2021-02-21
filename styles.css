@@ -90,8 +90,7 @@ form {
 }
 
 .receive-button {
-  padding: 5px 25px;
-  margin-top: 1.5em;
+  margin-top: 1em;
 }
 
 /* MESSAGE BOX */
@@ -101,6 +100,7 @@ button {
   color: #ffffff;
   border-radius: 5px;
   border: none;
+  padding: .5em 2em;
 }
 
 .msg-box {
@@ -129,6 +129,7 @@ button {
 
 /* CYO FORM */
 .add-msg-form {
+  margin-top: 1em;
   width: 100%
 }
 
@@ -138,22 +139,23 @@ button {
 
 .type-container {
   height: 3.5em;
+  margin-right: 9em;
 }
 
 .error-type,
-.error-msg {
+.error-msg, 
+.error-radio-type {
   color:red;
   font-size: .9em;
   margin: 0 0;
 }
 
 .form-buttons {
-  margin: 1em 0 0 40em;
+  margin: 1em 0 0 34em;
 }
 
-.button-form,
 .submit {
-  padding: .5em 2em;
+  margin-left: 10em;
 }
 
 .visibility-hidden {

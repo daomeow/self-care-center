@@ -1,6 +1,7 @@
 var addMessageButton = document.querySelector('.button-form');
 var clearButton = document.querySelector('.button-clear');
 var errorMessage = document.querySelector('.error-msg');
+var errorRadio = document.querySelector('.error-radio-type');
 var errorType = document.querySelector('.error-type');
 var formTypeInput = document.querySelector('#types');
 var icon = document.querySelector('.icon');

@@ -6,7 +6,7 @@
     <title>✨ Self Care Center</title>
   </head>
   <body>
-    <section class="login-page">
+    <section class="login-page visibility-hidden">
       <h1 class="login-heading">✨ Self Care Center ✨</h1>
       <section class="login-container">
         <p>Please enter your name to login</p>
@@ -17,7 +17,7 @@
         <button class="login-button">Submit</button>
       </section>
     </section>
-    <section class="main-page visibility-hidden">
+    <section class="main-page ">
       <h1 class="main-heading">✨ Self Care Center ✨</h1>
       <p class="intro">
         <!-- Welcome Message-->
@@ -34,8 +34,9 @@
               <input type="radio" class="mantra radio" id="mantra" name="radio" value="mantra">
               <label for="mantra">mantra</label> 
             </div>
-          </div> 
+          </div>
           <button class="receive-button">Receive Message</button>
+          <p class="error-radio-type visibility-hidden"> * Please select a type</p>  
         </form>
       </section>
       <section class="msg-box">
@@ -63,8 +64,8 @@
         </form>
       </section>
       <div class="form-buttons">
-        <button class="button-clear visibility-hidden">Clear</button>
         <button class="button-form">Add Message</button>
+        <button class="button-clear visibility-hidden">Clear</button>
         <button class="submit visibility-hidden">Submit</button>
       </div>
     </section> 
