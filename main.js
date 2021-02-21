@@ -1,21 +1,21 @@
-var formButton = document.querySelector('.button-form');
+var addMessageButton = document.querySelector('.button-form');
 var clearButton = document.querySelector('.button-clear');
-var submitMessageButton = document.querySelector('.submit');
-var receiveMessageButton = document.querySelector('.button-msg');
-var loginButton = document.querySelector('.login-button');
-var form = document.querySelector('.add-msg-form');
-var formTypeInput = document.querySelector('#types');
-var formMsgInput = document.querySelector('.user-msg');
-var errorMsg = document.querySelector('.error-msg');
+var errorMessage = document.querySelector('.error-msg');
 var errorType = document.querySelector('.error-type');
+var formTypeInput = document.querySelector('#types');
 var icon = document.querySelector('.icon');
+var loginButton = document.querySelector('.login-button');
 var loginName = document.querySelector('.user-name');
 var loginPage = document.querySelector('.login-page');
 var mainIntro = document.querySelector('.intro');
 var mainPage = document.querySelector('.main-page');
 var message = document.querySelector('.message');
+var messageFormInput = document.querySelector('.user-msg');
 var radioAffirmation = document.querySelector('#affirmation');
 var radioMantra = document.querySelector('#mantra');
+var receiveMessageButton = document.querySelector('.button-msg');
+var submitMessageButton = document.querySelector('.submit');
+var userForm = document.querySelector('.add-msg-form');
 
 loginButton.addEventListener('click', function(event) {
   showWelcome();
@@ -25,7 +25,7 @@ receiveMessageButton.addEventListener('click', function(event) {
   displayMsg();
   event.preventDefault();
 });
-formButton.addEventListener('click', displayForm);
+addMessageButton.addEventListener('click', displayForm);
 submitMessageButton.addEventListener('click', displayUserMsg);
 clearButton.addEventListener('click', clearMsg);
 
@@ -62,37 +62,36 @@ function displayMsg() {
     message.innerHTML = randomAffirmation;
   } else if (type === 2 ) {
     message.innerHTML = randomMantra;
-  } else {
-    return;
-  }
+  } 
   hide(submitMessageButton);
-  hide(form);
+  hide(userForm);
   hide(icon);
-  show(formButton);
+  show(addMessageButton);
   show(message);
 }
 
 function displayForm() {
-  hide(formButton);
+  hide(addMessageButton);
   hide(icon);
   hide(message);
   hide(errorType);
-  hide(errorMsg);
+  hide(errorMessage
+  );
   hide (clearButton);
   show(submitMessageButton);
-  show(form);
+  show(userForm);
 }
 
 function displayUserMsg() {
-  var newMsg = formMsgInput.value;
-  var error = displayError();
+  var userMessageInput = messageFormInput.value;
+  var isFormValid = displayError();
   
-  if (!error) {
-    message.innerHTML = newMsg;
+  if (!isFormValid) {
+    message.innerHTML = userMessageInput;
     clearForm();
     hide(submitMessageButton);
-    hide(form);
-    show(formButton);
+    hide(userForm);
+    show(addMessageButton);
     show(clearButton);
     show(message);
   } 
@@ -111,7 +110,8 @@ function validate(userEntry, warning) {
 
 function displayError() {
   var checkType = validate(formTypeInput.value, errorType);
-  var checkMsg = validate(formMsgInput.value, errorMsg);
+  var checkMsg = validate(messageFormInput.value, errorMessage
+  );
 
   if (checkType || checkMsg) {
     return true;
@@ -121,16 +121,16 @@ function displayError() {
 }
 
 function clearForm() {
-  formMsgInput.value = "";
+  messageFormInput.value = "";
   formTypeInput.value = "";
 }
 
 function clearMsg() {
-  show(form);
+  show(userForm);
   show(submitMessageButton);
   hide(message)
   hide(clearButton);
-  hide(formButton);
+  hide(addMessageButton);
 }
 
 function hide(element) {
