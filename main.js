@@ -10,7 +10,7 @@ var loginName = document.querySelector('.user-name');
 var loginPage = document.querySelector('.login-page');
 var mainIntro = document.querySelector('.intro');
 var mainPage = document.querySelector('.main-page');
-var message = document.querySelector('.message');
+var message = document.querySelector('.message-display');
 var messageFormInput = document.querySelector('.user-msg');
 var radioAffirmation = document.querySelector('#affirmation');
 var radioMantra = document.querySelector('#mantra');
@@ -39,10 +39,22 @@ function showWelcome() {
     `
     hide(loginPage);
     show(mainPage);
+  } else {
+    show(loginError)
+  }
+}
+
+function confirmRadioButton() {
+  if (!radioAffirmation.checked && !radioMantra.checked) {
+    show(errorRadio);
+  } else {
+    hide(errorRadio);
   }
 }
 
 function typeOfMessage() {
+  confirmRadioButton();
+
   if (radioAffirmation.checked) {
     return 1;
   } else if (radioMantra.checked) {
@@ -70,7 +82,6 @@ function displayMessage() {
   hide(submitMessageButton);
   hide(userForm);
   show(addMessageButton);
-  show(message);
 }
 
 function displayForm() {
@@ -100,7 +111,7 @@ function displayUserMessage() {
   hide(icon);
 }
 
-function validate(userEntry, warning) {
+function validateForm(userEntry, warning) {
   if (userEntry === "") {
     show(warning);
     return true;
@@ -111,8 +122,8 @@ function validate(userEntry, warning) {
 } 
 
 function displayError() {
-  var checkType = validate(formTypeInput.value, errorType);
-  var checkMsg = validate(messageFormInput.value, errorMessage);
+  var checkType = validateForm(formTypeInput.value, errorType);
+  var checkMsg = validateForm(messageFormInput.value, errorMessage);
 
   if (checkType || checkMsg) {
     return true;
@@ -121,17 +132,24 @@ function displayError() {
   }
 }
 
+// function confirmRadioButton() {
+//   if (!radioAffirmation.checked && !radioMantra.checked) {
+//     show(errorRadio);
+//   } else {
+//     hide(errorRadio);
+//   }
+// }
+
 function clearForm() {
   messageFormInput.value = "";
   formTypeInput.value = "";
 }
 
 function clearMessage() {
-  show(userForm);
-  show(submitMessageButton);
-  hide(message)
   hide(clearButton);
-  hide(addMessageButton);
+  hide(message);
+  show(addMessageButton);
+  show(icon);
 }
 
 function hide(element) {
