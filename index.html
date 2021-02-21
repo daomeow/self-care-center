@@ -12,23 +12,43 @@
       <h2>Which type of message?</h2 >
       <form>
         <div class="radio-container">
-          <input type="radio" id="affirmation" name="radio" value="affirmation">
-          <label for="affirmation">affirmation</label>
-          <input type="radio" id="mantra" name="radio" value="mantra">
-          <label for="mantra">mantra</label> 
+          <div class="affirmation-container">
+            <input type="radio" class="affirmation radio" id="affirmation" name="radio" value="affirmation">
+            <label for="affirmation">affirmation</label>
+          </div>
+          <div class="mantra-container">
+            <input type="radio" class="mantra radio" id="mantra" name="radio" value="mantra">
+            <label for="mantra">mantra</label> 
+          </div>
         </div> 
-        <span class="button-container">
-          <button class="button-msg">Receive Message</button>
-          <button class="button-form">Add Message</button>
-        </span>
+        <button class="button-msg">Receive Message</button>
       </form>
     </section>
     <section class="msg-box">
-      <img class="icon" src="./assets/meditate.svg" alt="mediation icon">
-      <p class="message visibility-hidden">
-        <!-- MESSAGES -->
-      </p>
+      <div class="msg-container">
+        <img class="icon" src="./assets/meditate.svg" alt="mediation icon">
+        <p class="message visibility-hidden"></p>
+      </div>
+      <form class="add-msg-form visibility-hidden">
+        <span class="type-container">
+          <label for="type">Message Type:</label>
+          <input id="types" list="type">
+          <datalist id="type">
+            <option value="affirmation"></option>
+            <option value="mantra"></option>  
+          </datalist>
+        </span>
+        <br>
+        <span class="message-container">
+          <label class="msg-input" for="message">New Message:</label>
+          <input label="message" type="text" class="user-msg" placeholder="Enter message here!"> 
+        </span>
+      </form>
     </section>
+    <div class="form-buttons">
+      <button class="button-form">Add Message</button>
+      <button class="submit visibility-hidden">Submit</button>
+    </div>
     <script src="data.js"></script>
     <script type="text/javascript" src="main.js"></script>
   </body>
