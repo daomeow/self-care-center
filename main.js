@@ -22,12 +22,12 @@ loginButton.addEventListener('click', function(event) {
   event.preventDefault();
 });
 receiveMessageButton.addEventListener('click', function(event) {
-  displayMsg();
+  displayMessage();
   event.preventDefault();
 });
 addMessageButton.addEventListener('click', displayForm);
-submitMessageButton.addEventListener('click', displayUserMsg);
-clearButton.addEventListener('click', clearMsg);
+submitMessageButton.addEventListener('click', displayUserMessage);
+clearButton.addEventListener('click', clearMessage);
 
 function showWelcome() {
   var name = loginName.value
@@ -41,7 +41,7 @@ function showWelcome() {
   }
 }
 
-function typeOfMsg() {
+function typeOfMessage() {
   if (radioAffirmation.checked) {
     return 1;
   } else if (radioMantra.checked) {
@@ -53,36 +53,35 @@ function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length)
 }
 
-function displayMsg() {
+function displayMessage() {
   var randomAffirmation = affirmation[getRandomIndex(affirmation)];
   var randomMantra = mantra[getRandomIndex(mantra)];
-  var type = typeOfMsg();
+  var type = typeOfMessage();
   
   if (type === 1) {
     message.innerHTML = randomAffirmation;
   } else if (type === 2 ) {
     message.innerHTML = randomMantra;
   } 
+  hide(icon);
   hide(submitMessageButton);
   hide(userForm);
-  hide(icon);
   show(addMessageButton);
   show(message);
 }
 
 function displayForm() {
   hide(addMessageButton);
-  hide(icon);
-  hide(message);
-  hide(errorType);
-  hide(errorMessage
-  );
   hide (clearButton);
+  hide(icon);
+  hide(errorType);
+  hide(errorMessage);
+  hide(message);
   show(submitMessageButton);
   show(userForm);
 }
 
-function displayUserMsg() {
+function displayUserMessage() {
   var userMessageInput = messageFormInput.value;
   var isFormValid = displayError();
   
@@ -110,8 +109,7 @@ function validate(userEntry, warning) {
 
 function displayError() {
   var checkType = validate(formTypeInput.value, errorType);
-  var checkMsg = validate(messageFormInput.value, errorMessage
-  );
+  var checkMsg = validate(messageFormInput.value, errorMessage);
 
   if (checkType || checkMsg) {
     return true;
@@ -125,7 +123,7 @@ function clearForm() {
   formTypeInput.value = "";
 }
 
-function clearMsg() {
+function clearMessage() {
   show(userForm);
   show(submitMessageButton);
   hide(message)
