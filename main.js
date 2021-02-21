@@ -1,24 +1,58 @@
-var buttonAddMsg = document.querySelector('.button-form');
-var buttonSubmitMsg = document.querySelector('.submit');
-var buttonReceive = document.querySelector('.button-msg');
-var form = document.querySelector('.add-msg-form');
+var addMessageButton = document.querySelector('.button-form');
+var clearButton = document.querySelector('.button-clear');
+var errorMessage = document.querySelector('.error-msg');
+var errorRadio = document.querySelector('.error-radio-type');
+var errorType = document.querySelector('.error-type');
 var formTypeInput = document.querySelector('#types');
-var formMsgInput = document.querySelector('.user-msg');
 var icon = document.querySelector('.icon');
-var message = document.querySelector('.message');
+var loginButton = document.querySelector('.login-button');
+var loginName = document.querySelector('.user-name');
+var loginPage = document.querySelector('.login-page');
+var mainIntro = document.querySelector('.intro');
+var mainPage = document.querySelector('.main-page');
+var message = document.querySelector('.message-display');
+var messageFormInput = document.querySelector('.user-msg');
 var radioAffirmation = document.querySelector('#affirmation');
 var radioMantra = document.querySelector('#mantra');
+var receiveMessageButton = document.querySelector('.receive-button');
+var submitMessageButton = document.querySelector('.submit');
+var userForm = document.querySelector('.add-msg-form');
 
-buttonAddMsg.addEventListener('click', displayForm);
-
-buttonReceive.addEventListener('click', function(event) {
-  displayMsg();
+loginButton.addEventListener('click', function(event) {
+  showWelcome();
   event.preventDefault();
 });
+receiveMessageButton.addEventListener('click', function(event) {
+  displayMessage();
+  event.preventDefault();
+});
+addMessageButton.addEventListener('click', displayForm);
+submitMessageButton.addEventListener('click', displayUserMessage);
+clearButton.addEventListener('click', clearMessage);
 
-buttonSubmitMsg.addEventListener('click', displayUserMsg);
+function showWelcome() {
+  var name = loginName.value;
 
-function typeOfMsg() {
+  if (name !== "") {
+    mainIntro.innerHTML = `
+    Welcome, ${name}! Learn from yesterday, live for today, hope for tomorrow.
+    `
+    hide(loginPage);
+    show(mainPage);
+  }
+}
+
+function confirmRadioButton() {
+  if (!radioAffirmation.checked && !radioMantra.checked) {
+    show(errorRadio);
+  } else {
+    hide(errorRadio);
+  }
+}
+
+function typeOfMessage() {
+  confirmRadioButton();
+
   if (radioAffirmation.checked) {
     return 1;
   } else if (radioMantra.checked) {
@@ -30,62 +64,84 @@ function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length)
 }
 
-function displayMsg() {
+function displayMessage() {
   var randomAffirmation = affirmation[getRandomIndex(affirmation)];
   var randomMantra = mantra[getRandomIndex(mantra)];
-  var type = typeOfMsg();
+  var type = typeOfMessage();
   
   if (type === 1) {
     message.innerHTML = randomAffirmation;
   } else if (type === 2 ) {
     message.innerHTML = randomMantra;
-  } else {
-    return;
+  } 
+
+  if (type === 1 || type === 2) {
+    hide(icon);
+    hide(submitMessageButton);
+    hide(userForm);
+    show(addMessageButton);
+    show(message);
   }
-  hide(buttonSubmitMsg);
-  hide(form);
-  hide(icon);
-  show(buttonAddMsg);
-  show(message);
 }
 
 function displayForm() {
-  hide(buttonAddMsg);
+  hide(addMessageButton);
+  hide (clearButton);
   hide(icon);
+  hide(errorType);
+  hide(errorMessage);
   hide(message);
-  show(buttonSubmitMsg);
-  show(form);
+  show(submitMessageButton);
+  show(userForm);
 }
 
-function displayUserMsg() {
-  var newMsg = formMsgInput.value;
-  var validatation = validate();
+function displayUserMessage() {
+  var userMessageInput = messageFormInput.value;
+  var isFormValid = displayError();
   
-  if (validatation) {
-    message.innerHTML = newMsg;
+  if (!isFormValid) {
+    message.innerHTML = userMessageInput;
     clearForm();
-    hide(buttonSubmitMsg);
-    hide(form);
-    show(buttonAddMsg);
+    hide(submitMessageButton);
+    hide(userForm);
+    show(addMessageButton);
+    show(clearButton);
     show(message);
   } 
   hide(icon);
 }
 
-function validate() {
-  var confirm = false;
-
-  if (formMsgInput.value !== "" &&
-  formTypeInput.value === 'affirmation' ||
-  formTypeInput.value === 'mantra') {
-    confirm = true;
+function validateForm(userEntry, warning) {
+  if (userEntry === "") {
+    show(warning);
+    return true;
+  } else {
+    hide(warning)
+    return false;
   }
-  return confirm;
+} 
+
+function displayError() {
+  var checkType = validateForm(formTypeInput.value, errorType);
+  var checkMsg = validateForm(messageFormInput.value, errorMessage);
+
+  if (checkType || checkMsg) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 function clearForm() {
-  formMsgInput.value = "";
+  messageFormInput.value = "";
   formTypeInput.value = "";
+}
+
+function clearMessage() {
+  hide(clearButton);
+  hide(message);
+  show(addMessageButton);
+  show(icon);
 }
 
 function hide(element) {
