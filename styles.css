@@ -65,7 +65,7 @@ h1 {
 
 h2 { 
   color: #ffffff;
-  margin-left: 23%;
+  margin: 0 0 1% 23%;
 }
 
 .form-container {
@@ -133,9 +133,10 @@ button {
 
 /* CYO FORM */
 .add-msg-form {
-  display: flex;
-  align-items: flex-start;
-  margin: 2% 0 0 15%;
+  /* display: flex; */
+  /* align-items: flex-start; */
+  /* margin: 2% 0 0 15%; */
+  width: 100%
 }
 
 .user-msg {
@@ -152,7 +153,7 @@ button {
   margin: 0 0;
 }
 .form-buttons {
-  margin: 1% 0 0 45%;
+  margin: 1em 0 0 40em;
 }
 
 .button-form,

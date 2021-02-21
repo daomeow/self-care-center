@@ -1,7 +1,8 @@
-var buttonAddMsg = document.querySelector('.button-form');
-var buttonSubmitMsg = document.querySelector('.submit');
-var buttonReceive = document.querySelector('.button-msg');
-var buttonLogin = document.querySelector('.login-button');
+var formButton = document.querySelector('.button-form');
+var clearButton = document.querySelector('.button-clear');
+var submitMessageButton = document.querySelector('.submit');
+var receiveMessageButton = document.querySelector('.button-msg');
+var loginButton = document.querySelector('.login-button');
 var form = document.querySelector('.add-msg-form');
 var formTypeInput = document.querySelector('#types');
 var formMsgInput = document.querySelector('.user-msg');
@@ -16,19 +17,17 @@ var message = document.querySelector('.message');
 var radioAffirmation = document.querySelector('#affirmation');
 var radioMantra = document.querySelector('#mantra');
 
-buttonLogin.addEventListener('click', function(event) {
+loginButton.addEventListener('click', function(event) {
   showWelcome();
   event.preventDefault();
 });
-
-buttonReceive.addEventListener('click', function(event) {
+receiveMessageButton.addEventListener('click', function(event) {
   displayMsg();
   event.preventDefault();
 });
-
-buttonAddMsg.addEventListener('click', displayForm);
-
-buttonSubmitMsg.addEventListener('click', displayUserMsg);
+formButton.addEventListener('click', displayForm);
+submitMessageButton.addEventListener('click', displayUserMsg);
+clearButton.addEventListener('click', clearMsg);
 
 function showWelcome() {
   var name = loginName.value
@@ -66,20 +65,21 @@ function displayMsg() {
   } else {
     return;
   }
-  hide(buttonSubmitMsg);
+  hide(submitMessageButton);
   hide(form);
   hide(icon);
-  show(buttonAddMsg);
+  show(formButton);
   show(message);
 }
 
 function displayForm() {
-  hide(buttonAddMsg);
+  hide(formButton);
   hide(icon);
   hide(message);
   hide(errorType);
   hide(errorMsg);
-  show(buttonSubmitMsg);
+  hide (clearButton);
+  show(submitMessageButton);
   show(form);
 }
 
@@ -90,16 +90,16 @@ function displayUserMsg() {
   if (!error) {
     message.innerHTML = newMsg;
     clearForm();
-    hide(buttonSubmitMsg);
+    hide(submitMessageButton);
     hide(form);
-    show(buttonAddMsg);
+    show(formButton);
+    show(clearButton);
     show(message);
   } 
   hide(icon);
 }
 
 function validate(userEntry, warning) {
-
   if (userEntry === "") {
     show(warning);
     return true;
@@ -107,7 +107,8 @@ function validate(userEntry, warning) {
     hide(warning)
     return false;
   }
-}   
+} 
+
 function displayError() {
   var checkType = validate(formTypeInput.value, errorType);
   var checkMsg = validate(formMsgInput.value, errorMsg);
@@ -122,6 +123,14 @@ function displayError() {
 function clearForm() {
   formMsgInput.value = "";
   formTypeInput.value = "";
+}
+
+function clearMsg() {
+  show(form);
+  show(submitMessageButton);
+  hide(message)
+  hide(clearButton);
+  hide(formButton);
 }
 
 function hide(element) {
